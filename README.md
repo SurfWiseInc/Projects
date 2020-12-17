@@ -10,7 +10,7 @@ Every folder contains different project/program below is short description of ea
 
 - WindWindowModel contains program to visualize surf kite wind window with simple particle system to imitate tether connecting kite and a pilot. The final goal is to attach appropriate forces to last particle of the tether to simulate dynamics of the kite.
 
--DigitalArtificialHorizon contains processing file to connect to MPU6050 to read orientation of the sensor and dislpay it via digital artificial horizon. Application additionaly displays model of an aeroplane with orientation accordingly to IMU sensor read.
+- DigitalArtificialHorizon contains processing file to connect with ArduinoUNO to read orientation of the MPU6050 sensor and dislpay it via digital artificial horizon. Application additionaly displays model of an aeroplane with orientation accordingly to IMU sensor read.
 
 
 
