@@ -75,7 +75,7 @@ void setup(){
   
   p0.lock();
   
-  float k = 0.99;
+  float k = 0.98;
   
   VerletSpring3D spring01=new VerletSpring3D(p0,p1,100,k);
   VerletSpring3D spring12=new VerletSpring3D(p1,p2,100,k);
