@@ -35,7 +35,6 @@ void setup() {
  bg = loadImage("SKY3.png");
   s = loadShape("Airplane_Model.obj");
  ADI = loadImage("ADI.jpg");
-// wat = loadImage("wat3.png"); 
  background(0);
   s.scale(0.10);
   s.rotateX(radians(90));
@@ -61,7 +60,7 @@ void setup() {
  */
 }
 
-void draw() {
+ void draw() {
  // UNCOMMENT MPUINIT(); ONLY IF YOU READ VALUES FROM MPU6050
  // MPUinit();
  
@@ -97,18 +96,19 @@ mouseInput();
 
 }
 
+
+
+
 void mouseInput(){
  pushMatrix();
     translate(width / 2, height / 2, 500);
     float newYr = map(mouseY,0,height, 90,-90);
     float newXr = map(mouseX,0,width,-180,180);
-    //rotateY(newX);
     rotateX(radians(newYr));
     rotateZ(radians(newXr));   
      shape(s,0,0);
  popMatrix();
 }
-
 void IMUInput(){
   
   // translate everything to the middle of the viewport
@@ -125,7 +125,6 @@ void IMUInput(){
     rotate(axis[0], -axis[1], axis[3], axis[2]);
     shape(s,0,0); 
 }
-
 void MPUinit(){
    if (millis() - interval > 1000) {
         // resend single character to trigger DMP init/start
