@@ -92,14 +92,14 @@ void setup() {
  //the orienation of airplane and ADI indication by position of the mouse
  //we need to comment mouseInput() line if we read data from MPU6050
  //if we place cursour in the center of the window we have orientation with pitch = 0 ; roll = 0;
-mouseInput();
+mousePositionInput();
 
 }
 
 
 
 
-void mouseInput(){
+void mousePositionInput(){
  pushMatrix();
     translate(width / 2, height / 2, 500);
     float newYr = map(mouseY,0,height, 90,-90);
