@@ -1,15 +1,16 @@
+//program presents turn rate law of surf kite simulation 
+
 import grafica.*;
-//
-float vw = 10; //m/s
-int   L = 100; //m
-int   E = 5;   //C_L/C_D
+
+float vw = 10; // [m/s] - speed of wind
+int   L = 100; //  [m]  - lenght of tether between kite and pilot
+int   E = 5;   // C_L/C_D - lif to drag coeff ratio
 
 KiteModel kiteModel = new KiteModel(E , L , vw);
 
 void setup() {
-  size(1000, 1050);
+  size(950, 700);
   background(150);
-
   // Prepare the points for the plot
   int arTheta_dot = 160; // ar=array
   int arTheta = 160;
@@ -18,19 +19,16 @@ void setup() {
   
   GPointsArray reTheta_dot = new GPointsArray(arTheta_dot); //re=result
   GPointsArray reTheta = new GPointsArray(arTheta);
-  GPointsArray reKsi = new GPointsArray(arKsi); //re=result
+  GPointsArray reKsi = new GPointsArray(arKsi); 
   GPointsArray reVa = new GPointsArray(arVa);
    
 int   t = 0;
-
-float Ksi = 0;//mouseX; //
-
+float Ksi = 0;
 float va;
 float theta_dot;
 
 float theta = kiteModel.calcTheta0(Ksi,E); //atan(E*cos(Ksi));
-//float degTheta = degrees(theta);
-int i=0;
+
   while (t<160){
    
   va = kiteModel.calcVa(vw, theta, E);   //vw * E * cos(theta);
@@ -45,19 +43,16 @@ int i=0;
     reVa.add(t,va);
     
     t++;
-    
-    Ksi=radians(t);
+   
+    Ksi=0;
     if (t>60){
      
-    Ksi=radians(60-i++);}
+    Ksi=radians(50);}
     if (t>120)
-    Ksi=0;
-    //if (t>30) {Ksi=radians(70);}
-    //if (t>80) {Ksi=radians(83);}
+    Ksi=radians(86);
+ 
     println("t=  " , t , "Ksi= " , degrees(Ksi));
-    
-  //println("t: ", t, "Theta_dot: ", theta_dot, "  Theta: ", degrees(theta));
-  }
+     }
   
   // Create a new plot and set its position on the screen
   GPlot plot1 = new GPlot(this);
@@ -69,15 +64,11 @@ int i=0;
    GPlot plot4 = new GPlot(this);
    plot4.setPos(450,325);
    
-  // or all in one go
-  // GPlot plot = new GPlot(this, 25, 25);
-
   // Set the plot title and the axis labels
   plot1.setTitleText("Theta_dot");
   plot1.getXAxis().setAxisLabelText("t");
   plot1.getYAxis().setAxisLabelText("degree/s");
   
-   // Set the plot title and the axis labels
   plot2.setTitleText("Theta");
   plot2.getXAxis().setAxisLabelText("t");
   plot2.getYAxis().setAxisLabelText("degree");
@@ -86,7 +77,6 @@ int i=0;
   plot3.getXAxis().setAxisLabelText("t");
   plot3.getYAxis().setAxisLabelText("m/s");
   
-   // Set the plot title and the axis labels
   plot4.setTitleText("Ksi");
   plot4.getXAxis().setAxisLabelText("t");
   plot4.getYAxis().setAxisLabelText("degree");
@@ -95,7 +85,7 @@ int i=0;
   plot2.setPoints(reTheta);
   plot3.setPoints(reVa);
   plot4.setPoints(reKsi);
-  // Draw it!
+  // Draw graphs!
   plot1.defaultDraw();
   plot2.defaultDraw();
   plot3.defaultDraw();
