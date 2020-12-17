@@ -1,5 +1,6 @@
 //program presents turn rate law of surf kite simulation 
 
+//for succesful run off app it is necessary to import grafica library via ProcessingIDE - Sketch > Import library > grafica
 import grafica.*;
 
 float vw = 10; // [m/s] - speed of wind
@@ -42,14 +43,13 @@ float theta = kiteModel.calcTheta0(Ksi,E); //atan(E*cos(Ksi));
     reKsi.add(t, degrees(Ksi));
     reVa.add(t,va);
     
-    t++;
    
-    Ksi=0;
-    if (t>60){
-     
-    Ksi=radians(50);}
-    if (t>120)
-    Ksi=radians(86);
+    
+    if (t>60) Ksi=radians(50);
+    
+    if (t>120)Ksi=radians(86);
+    
+     t++;
  
     println("t=  " , t , "Ksi= " , degrees(Ksi));
      }
