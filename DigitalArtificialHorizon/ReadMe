@@ -1,1 +1,6 @@
-Read Me file
+Digital Artificial Horizon was developed for my university project.
+Originally it was recieving data from IMU MPU6050 and translate it into ADI information and orientation of airplane model however for the presentation purpuse,
+input data is read from mouse position (center of app window is position zero).
+
+It is necessary to run the application via ProcessingIDE
+
